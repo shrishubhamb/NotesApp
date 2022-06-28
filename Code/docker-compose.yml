@@ -1,0 +1,25 @@
+version: '3'
+services:
+  database:
+    container_name: notesapp_db
+    build: ./database/
+    volumes:
+      - myapp:/var/lib/mysql
+  
+  backend:
+    container_name: notesapp_back
+    build: ./backend/
+    ports:
+      - 4000:4000
+      
+  frontend:
+    container_name: notesapp_front
+    build: ./frontend/
+    ports:
+      - 80:80
+      
+volumes:
+  myapp:
+
+
+    

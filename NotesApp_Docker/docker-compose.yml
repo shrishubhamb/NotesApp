@@ -1,0 +1,19 @@
+version: '3'
+services:
+  database:
+    image: shrishubhamb/notesapp_database
+    volumes:
+      - myapp:/var/lib/mysql
+  
+  backend:
+    image: shrishubhamb/notesapp_backend
+    ports:
+      - 4000:4000
+      
+  frontend:
+    image: shrishubhamb/notesapp_frontend
+    ports:
+      - 80:80
+
+volumes:
+  myapp:
